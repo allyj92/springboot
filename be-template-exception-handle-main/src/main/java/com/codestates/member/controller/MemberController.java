@@ -6,11 +6,15 @@ import com.codestates.member.dto.MemberResponseDto;
 import com.codestates.member.entity.Member;
 import com.codestates.member.mapper.MemberMapper;
 import com.codestates.member.service.MemberService;
+import com.codestates.response.ErrorResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.FieldError;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.ConstraintViolationException;
 import javax.validation.Valid;
 import javax.validation.constraints.Positive;
 import java.util.List;
@@ -75,7 +79,16 @@ public class MemberController {
             @PathVariable("member-id") @Positive long memberId) {
         System.out.println("# delete member");
         memberService.deleteMember(memberId);
-
+        System.out.println("ConstaraintViolation Exception!!");
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+
+//    @ExceptionHandler
+//    public ResponseEntity handleException(MethodArgumentNotValidException e){
+//
+//
+//        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+//    }
+
+
 }
