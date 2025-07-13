@@ -25,5 +25,6 @@ public class Student4 {
 
     public void showInfo(){
         System.out.println("학번:" + studentID + ", 성명:" + studentName);
+        System.out.println("국어:" + korean.subjectName + korean.scorePoint+ ", 수학:" + math.subjectName + math.scorePoint);
     }
 }
