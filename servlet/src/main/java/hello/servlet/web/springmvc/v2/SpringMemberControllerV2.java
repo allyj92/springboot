@@ -3,6 +3,7 @@ package hello.servlet.web.springmvc.v2;
 import hello.servlet.domain.member.Member;
 import hello.servlet.domain.member.MemberRepository;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -20,13 +21,12 @@ public class SpringMemberControllerV2 {
     }
 
     @RequestMapping
-    public ModelAndView save() {
+    public String members(Model model) {
 
         List<Member> members = memberRepository.findAll();
-        ModelAndView mv = new ModelAndView("members");
-        mv.addObject("members",members);
 
-        return mv;
+        model.addAttribute("members",members);
+        return "members";
 
 
     }
@@ -39,6 +39,7 @@ public class SpringMemberControllerV2 {
         Member member = new Member(username, age);
         memberRepository.save(member);
 
+        
         ModelAndView mv = new ModelAndView("save-result");
         mv.addObject("member",member);
         return mv;
