@@ -1,8 +1,6 @@
 package javalab.javalab.ch12;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 // List
 // 중복허용, 입력순서유지
@@ -40,7 +38,7 @@ public class ListEx {
 
         array_list.clear();
 
-
+        // List 인터페이스
         System.out.println("===== LinkedList ======");
         List<Integer> linked_list = new LinkedList<>(); // up casting
 
@@ -57,6 +55,34 @@ public class ListEx {
         System.out.println(linked_list.size());
         System.out.println(linked_list.indexOf(3));
         System.out.println(linked_list.indexOf(7)); // 없는 요소는 -1을 반환함
+
+        // 이중괄호 초기화 - 이중클래스를 이용한 방법. 익명클래스가 사용한 횟수만큼 생성됨
+        List<Integer> linked_list2 = new LinkedList<>()
+        {{add(1); add(2); add(3);add(4);add(5);}}; // up casting
+        linked_list2.forEach((item) ->{
+            System.out.println(item);
+        });
+
+        /// Set 인터페이스
+        System.out.println("===== Set ======");
+
+        Set<Integer> hashSet = new HashSet<>(); // up casting
+
+        hashSet.add(1); // 등록
+        hashSet.add(3);
+        hashSet.add(2);
+        hashSet.add(3);
+        hashSet.add(4);
+        hashSet.add(3);
+        hashSet.add(5);
+
+        for(Integer i : hashSet){
+            System.out.println(i);
+        }
+
+        System.out.println("hashSet Size : "+hashSet.size());
+
+
 
 
 
