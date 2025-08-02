@@ -1,0 +1,18 @@
+!SESSION 2025-07-31 15:17:51.819 -----------------------------------------------
+eclipse.buildId=4.36.0.202506052058
+java.version=21.0.7
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ko_KR
+Framework arguments:  -product org.springframework.boot.ide.branding.sts4
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.springframework.boot.ide.branding.sts4
+
+This is a continuation of log file C:\Users\imeun\Desktop\springboot\.metadata\.bak_0.log
+Created Time: 2025-07-31 15:21:56.270
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2025-07-31 15:21:56.270
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.core.resources 2 2 2025-08-02 22:02:17.540
+!MESSAGE Save operation warnings.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2025-08-02 22:02:17.542
+!MESSAGE The project description file (.project) for 'springBtWeb' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.

@@ -1,0 +1,26 @@
+package app.labs.ex08.mybatis.hr.dao;
+
+import java.util.List;
+import java.util.Map;
+
+import org.apache.ibatis.annotations.Param;
+
+import app.labs.ex08.mybatis.hr.model.EmpVO;
+
+public interface IEmpRepository {
+    int getEmpCount();
+    int getEmpCont(@Param("deptid") int deptId);
+
+    List<EmpVO> getEmpList();
+    EmpVO getEmpInfo(int empId);
+
+    void insertEmp(EmpVO emp);
+    void updateEmp(EmpVO emp);
+    int deleteEmp(int empId, String email);
+
+    void deleteJobHistory(int empId);  // ✅ 이름 수정됨
+
+    List<Map<String, Object>> getAllDeptID();
+    List<Map<String, Object>> getAllJobID();
+    List<Map<String, Object>> getAllManagerID();
+}

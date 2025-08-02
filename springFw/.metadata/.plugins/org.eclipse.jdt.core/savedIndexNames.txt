@@ -1,0 +1,2 @@
+INDEX VERSION 1.134+C:\Users\imeun\Desktop\labs_lect\labs_java\workspace\springFw\.metadata\.plugins\org.eclipse.jdt.core
+1865797976.index

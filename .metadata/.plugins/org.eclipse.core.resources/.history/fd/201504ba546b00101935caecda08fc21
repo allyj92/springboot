@@ -1,0 +1,76 @@
+package app.labs.ex06.mvc02.service;
+
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+@Service
+public class EmpService implements IEmpService {
+
+    // Repository를 주입 받아 DB 작업을 위임
+    @Autowired
+    IEmpRepository empRepository;
+
+    // 전체 직원 수 반환
+    public int getEmpCount() {
+        return empRepository.getEmpCount(); // 올바른 메서드 호출
+    }
+
+    // 특정 부서의 직원 수 반환
+   
+    public int getEmpCount(int deptId) {
+        return empRepository.getEmpCont(deptId);
+    }
+
+    // 전체 직원 목록 반환
+  
+    public List<EmpVO> getEmpList() {
+        return empRepository.getEmpList();
+    }
+
+    // 특정 직원 정보 반환
+    
+    public EmpVO getEmpInfo(int empId) {
+        return empRepository.getEmpInfo(empId);
+    }
+
+    // 직원 등록
+   
+    public void insertEmp(EmpVO emp) {
+        empRepository.insertEmp(emp);
+    }
+
+    // 직원 정보 수정
+    
+    public void updateEmp(EmpVO emp) {
+        empRepository.updateEmp(emp);
+    }
+
+    // 직원 삭제 (트랜잭션 처리)
+ 
+    @Transactional
+    public int deleteEmp(int empId, String email) {
+        empRepository.deletJobHistory(empId); // 사원 이력 먼저 삭제
+        return empRepository.deleteEmp(empId, email); // 그다음 사원 삭제
+    }
+
+    // 부서 목록 반환
+  
+    public List<Map<String, Object>> getAllDeptID() {
+        return empRepository.getAllDeptID();
+    }
+
+    // 직무 목록 반환
+    
+    public List<Map<String, Object>> getAllJobID() {
+        return empRepository.getAllJobID();
+    }
+
+    // 매니저 목록 반환
+    public List<Map<String, Object>> getAllManagerID() {
+        return empRepository.getAllManagerID();
+    }
+}

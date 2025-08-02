@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="installblind.ProductDAO"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="installblind.ProductDTO"/>
+    <fullyQualifiedTypeName name="installblind.ProductService"/>
+    <fullyQualifiedTypeName name="app.labs.ex06.mvc02.model.EmpVO"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
+</qualifiedTypeNameHistroy>

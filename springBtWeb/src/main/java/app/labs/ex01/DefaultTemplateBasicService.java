@@ -1,0 +1,41 @@
+package app.labs.ex01;
+
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Map;
+
+@Service
+public class DefaultTemplateBasicService implements TemplateBasicService{
+
+    List<String> list;
+    Map<String, String> map;
+    UserAccount userAccount;
+
+    public DefaultTemplateBasicService() {
+       this.list = List.of("A","B","C","D","E");
+       this.map = Map.of(
+               "A","가",
+               "B","나",
+               "C","다",
+               "D","라",
+               "E","마"
+       );
+        this.userAccount = new UserAccount("1", "user", "1234", "사용자", "ROLE_USER", null, "1");
+    }
+
+    @Override
+    public List<String> getList() {
+        return this.list;
+    }
+
+    @Override
+    public Map<String, String> getMap() {
+        return this.map;
+    }
+
+    @Override
+    public UserAccount getUserAccount() {
+        return this.userAccount;
+    }
+}

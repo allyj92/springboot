@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapper namespace="app.labs.ex08.mybatis.hr.dao.IEmpRepository">
+
+    <select id="getEmpCount" parameterType="int" resultType="int">
+        SELECT COUNT(*) FROM EMPLOYEES
+        <if test="deptId != null">
+             WHERE DEPARTMENT_ID = #{deptId}
+        </if>
+    </select>
+    
+    <select id="getEmpList" resultMap="empMap">
+        SELECT * FROM EMPLOYEES
+    </select>
+
+</mapper>

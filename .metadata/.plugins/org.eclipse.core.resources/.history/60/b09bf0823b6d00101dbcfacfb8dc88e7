@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapper namespace="app.labs.ex08.mybatis.hr.dao.IEmpRepository">
+
+    <!-- 예시 -->
+    <select id="getEmpCount" resultType="int">
+        SELECT COUNT(*) FROM employees
+    </select>
+
+</mapper>
