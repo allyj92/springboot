@@ -1,9 +1,101 @@
-<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
     </head>
-    <body></body>
+    <body>
+        <details>
+            <summary>질문1</summary>
+            <p>오늘 점심은 무엇을 먹을까요?</p>
+        </details>
+
+        <p>
+            오늘 <mark>점심메뉴</mark><br />
+            시간 <time>12:00</time><br />
+            메뉴만족도 <meter value="0.8">80%</meter><br />
+            자료업로드(20%) <progress value="2" max="10"></progress>
+        </p>
+
+        <form name="form" id="form" action="." method="post">
+            이름:
+            <input type="text" value="" maxlength="10" required placeholder="이름을 10자 이내로 입력해 주세요." /><br />
+            암호: <input type="password" value="" minlength="5" maxlength="10" required /><br />
+            설명: <textarea cols="80" rows="5" maxlength="2000">입력받는 곳</textarea> <br />
+
+            지역: <input type="text" list="locals" /> <br />
+            <datalist id="locals">
+                <option value="경기">경기도</option>
+                <option value="서울">서울시</option>
+                <option value="인천">인천시</option>
+            </datalist>
+
+            <select name="locals">
+                <option value="경기">경기도</option>
+                <option value="서울">서울시</option>
+                <option value="인천">인천시</option></select
+            ><br />
+
+            나이: <input type="number" min="0" max="120" step="1" onkeydown="return false" /><br />
+            날짜: <input type="date" min="2025-08-04" max="2025-08-08" /><br />
+            이메일: <input type="email" /><br />
+            전화번호:
+            <input type="text" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-123-1234" /><br />
+            <!-- 정규식 -->
+            범위:
+            <input type="range" min="0" max="100" step="5.5" oninput="console.log(this.value)" /><br />
+
+            <input type="checkbox" name="취미" value="등산" id="a" checked /><label for="a">등산</label> <label><input type="checkbox" name="취미" value="독서" id="b" />독서</label><br />
+
+            <label><input type="radio" name="성별" value="남" id="c" checked />남</label>
+            <input type="radio" name="성별" value="여" id="d" /><label for="d">여</label> <label><input type="radio" name="성별" value="선택안함" id="c" checked />선택안함</label><br />
+
+            <input type="radio" name="선택" value="예" id="c" checked /><label for="a">예</label> <label><input type="radio" name="선택" value="아니요" id="d" />아니요</label><br />
+
+            <input type="hidden" name="idx" value="" />
+            <input type="file" name="file" />
+
+            <button type="submit">보내기</button>
+        </form>
+
+        <a href="html_basic.html" target="_blank">베이직</a>
+        <a href="html_basic.html" download="html_기본.html">다운로드</a>
+
+        <table border="1">
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>4</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table border="1">
+            <tbody>
+                <tr>
+                    <td colspan="2">1</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>4</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table border="1">
+            <tbody>
+                <tr>
+                    <td rowspan="2">1</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
 </html>
