@@ -4,6 +4,8 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+
         <style>
             /* @import url('style.css');*/
             @import url('style.css') screen and (min-width: 200px) and (max-width: 400px);
@@ -46,6 +48,42 @@
             li#기준 + li {
                 color: green;
             } /* 바로 뒤의 형제 */
+
+            /* 속성 선택자 */
+            li[title] {
+                color: orange;
+            } /* 속성 존재 여부 */
+            li[title='할인'] {
+                color: red;
+            } /* 속성 값이 같다면 */
+            li[title~='무료배송']::after {
+                content: ' [무료매송]';
+            } /* 공백 기준으로 포함된다면 */
+            li[title$='품절'] {
+                color: grey;
+            } /* 속성 값이 끝난다면 */
+            li[title^='hot'] {
+                color: red;
+                font-weight: bold;
+            } /* 시작된다면 */
+            li[title*='무료'] {
+                text-decoration: underline;
+            } /* 포함된다면 */
+            li[title~='할인'][title~='무료배송'] {
+                color: black;
+            } /* and */
+            li[title~='할인'],
+            li[title~='무료배송'] {
+                color: black;
+            } /* or */
+
+            /* 가상 선택자 */
+            #fruit > ol > li:nth-child(2n) {
+                background-color: lime;
+            }
+            #fruit > ol > li:hover {
+                text-decoration: underline;
+            }
         </style>
     </head>
     <body>
@@ -62,7 +100,7 @@
                 <ol>
                     <li title="">사과</li>
                     <li title="할인">배</li>
-                    <li title="할인 무료배송">바나나</li>
+                    <li title="할인 무료배송 픔절">바나나</li>
                     <li title="무료배송 품절">수박</li>
                     <li title="hot 무료배송">복숭아</li>
                     <li><a href="#" target="_blank" data-url="">외부 쇼핑</a></li>
@@ -70,5 +108,14 @@
             </li>
             <li>요소6</li>
         </ul>
+
+        <script>
+            document.querySelector("li[title$='품절']").addEventListener('click', function () {
+                alert('품절입니다.');
+            });
+            $("li[title$='품절']").on('click', function () {
+                alert('품절입니다.');
+            });
+        </script>
     </body>
 </html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+        <script src="
+https://cdn.jsdelivr.net/npm/axios@1.11.0/dist/axios.min.js
+"></script>
+    </head>
+    <body>
+        <script>
+            let result = '';
+            $.get('msg.json', {}, function (data) {
+                result = data;
+                console.log('1.', result);
+            });
+            console.log('2.', result);
+
+            // promise D.P. == > 실행순서를 약속함
+            $.get('msg.json', {}, function (data) {
+                console.log('1. 처리중');
+            })
+                .done(function (data) {
+                    result = data;
+                    console.log('1.', result);
+                })
+                .done(function () {
+                    console.log('2.', result);
+                })
+                .fail(function (err) {
+                    console.log('에러.', err);
+                });
+
+            axios
+                .get('msg.json')
+                .then(function (res) {
+                    console.log('1. ', res.data);
+                })
+                .catch((error) => {
+                    console.log('에러.', error);
+                });
+
+            // axios 요청 with params
+            axios
+                .get('msg.json', {
+                    params: { param: '1234' },
+                })
+                .then(function (response) {
+                    console.log('6', response.data);
+                })
+                .catch(function (error) {
+                    console.log('에러', error);
+                });
+
+            // 표준
+            fetch('msg.json', {
+                method: 'GET',
+            })
+                .then((response) => {
+                    // 응답이 끝나면 다음 프라미스로 결과를 전달한다.
+                    if (response.ok) return response.json();
+                })
+                .then((data) => {
+                    console.log('0', data);
+                })
+                .catch(function (error) {
+                    console.log('오류:' + error.message);
+                });
+
+            async function test() {
+                await fn1();
+                await fn2();
+                await fn3();
+            }
+
+            test();
+            test().then(() => {});
+        </script>
+    </body>
+</html>

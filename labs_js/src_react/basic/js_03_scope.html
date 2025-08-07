@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            // this
+            var name = '가';
+            let name1 = '나';
+
+            console.log(name, name1);
+            console.log(this.name, this.name1);
+            console.log(window.name, window.name1); // 최상위 부모객체
+            // var ==> window의 객체로 등록 , let ==> 변수 선언
+
+            test(); // window 객체이므로 선언하기 전 호출이 가능함 <호이스팅 - 글로벌 컨텍스트에 미리
+            //  함수, 변수,(초기화 x) 정보가 등록되는 성질>
+            function test() {
+                var name = 'A';
+                console.log(name);
+                console.log(this.name);
+            }
+            //test();
+            window.test();
+
+            let test2 = {
+                name: '다',
+                test: function () {
+                    var name = '라';
+                    console.log(name); // 라
+                    console.log(this.name); // 다 ==> 가장 가까운것을 찾음, window x
+                }.bind(this), // 더 상위
+            };
+
+            test2.test();
+        </script>
+    </body>
+</html>

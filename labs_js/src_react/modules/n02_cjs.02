@@ -1,0 +1,6 @@
+//default
+const a1 = require('./cjs/cjs01.js'); // module => 1개만 export
+console.log(a1);
+
+const fna2 = require('./cjs/cjs01.js'); // module => 1개만 export
+fna2()
